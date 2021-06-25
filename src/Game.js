@@ -97,7 +97,7 @@ componentDidMount(){
     return (
       <div className='Game'>
         <header className='Game-header'>
-          <h1 className='App-title'>Yahtzee! </h1>
+          <h1 className='App-title'>Yahtzee!</h1>
 
           <section className='Game-dice-section'>
             <Dice
