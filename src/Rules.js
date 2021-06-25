@@ -110,21 +110,21 @@ const fives = new TotalOneNumber({ val: 5, description:  "5 points per 5"});
 const sixes = new TotalOneNumber({ val: 6, description: "6 points per 6"});
 
 // three/four of kind score as sum of all dice
-const threeOfKind = new SumDistro({ count: 3, description: "Sum of ALL dice, if 3 are the same number"});
-const fourOfKind = new SumDistro({ count: 4, description: "Sum of ALL dice, if 4 are the same number" });
+const threeOfKind = new SumDistro({ count: 3, description: "Sum all dice if 3 are the same"});
+const fourOfKind = new SumDistro({ count: 4, description: "Sum all dice if 4 are the same" });
 
 // full house scores as flat 25
-const fullHouse =  new FullHouse({ score: 2, description: "25 points, if you have a three of a kind AND a pair" });
+const fullHouse =  new FullHouse({ score: 25, description: "25 points for a full house" });
 
 // small/large straights score as 30/40
-const smallStraight = new SmallStraight({score: 30, description: "30 points, if you have 4 numbers in sequence" });
-const largeStraight = new LargeStraight({ score: 40, description:  "40 points, if you have 5 numbers in sequence"});
+const smallStraight = new SmallStraight({score: 30, description: "30 points for a small straight" });
+const largeStraight = new LargeStraight({ score: 40, description:  "40 points for a large straight"});
 
 // yahtzee scores as 50
-const yahtzee = new Yahtzee({ score: 50, description: "50 points, if you have 5 of the same number" });
+const yahtzee = new Yahtzee({ score: 50, description: "50 points for a yahtzee" });
 
 // for chance, can view as some of all dice, requiring at least 0 of a kind
-const chance = new SumDistro({ count: 0, description: "Sum of all dice, think of it like a Wild Card"  });
+const chance = new SumDistro({ count: 0, description: "Sum of all dice"  });
 
 export {
   ones,
