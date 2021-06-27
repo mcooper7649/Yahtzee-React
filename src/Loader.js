@@ -8,7 +8,6 @@ class Loader extends Component {
         <div className="cf">
             <div className="three">
                 <div className="loader" id="loader-1"></div>
-                <div>Initializing Fun....</div>
             </div>
         </div>
     </div>

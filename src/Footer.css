@@ -1,0 +1,12 @@
+.footer-div, a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-div, a:visited{
+    color: white;
+}
+
+.fa-user-ninja {
+    color: rebeccapurple;
+}

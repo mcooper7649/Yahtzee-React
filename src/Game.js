@@ -39,12 +39,14 @@ class Game extends Component {
     this.doScore = this.doScore.bind(this);
     this.toggleLocked = this.toggleLocked.bind(this);
     this.animateRoll = this.animateRoll.bind(this);
+    this.animateRollSilent = this.animateRollSilent.bind(this);
+
     this.displayRollInfo = this.displayRollInfo.bind(this);
     // this.setTimeout = this.setTimeout.bind(this);
   }
 
 componentDidMount(){
-  this.animateRoll()
+  this.animateRollSilent
   axios.get("http://localhost:9000/").then(response => {
     setTimeout(
       function(){
@@ -62,7 +64,18 @@ componentDidMount(){
     this.setState({ rolling: true }, () => {
       setTimeout(this.roll, 1000)
     })
-  }
+    let audio = new Audio("./diceroll.mp3")
+    const start = () => {
+        audio.play()
+      }
+      start();
+}
+animateRollSilent(){
+  this.setState({ rolling: true }, () => {
+    setTimeout(this.roll, 1000)
+  })
+}
+  
 
   roll(evt) {
     // roll dice whose indexes are in reroll
@@ -87,6 +100,11 @@ componentDidMount(){
         ...st.locked.slice(idx + 1)
       ]
     }));
+    let audio = new Audio("./light-click.mp3")
+    const start = () => {
+        audio.play()
+      }
+      start();
   }
   }
 
@@ -112,7 +130,7 @@ componentDidMount(){
   render() {
     const { dice, locked, rollsLeft, rolling, scores} = this.state;
     return (
-      <div className="Game-wrapper">
+      <div>
       {this.state.isLoaded ? (
       
       <div className='Game'>
@@ -145,6 +163,7 @@ componentDidMount(){
         <Loader />
       )}
     </div>
+    
     )
   }
 }

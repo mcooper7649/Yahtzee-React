@@ -2,7 +2,7 @@
 
   
   .three{
-    padding: 25em;
+    padding: 15em 0;
   }
   
   /* ALL LOADERS */
@@ -26,7 +26,7 @@
     height: 100%;
     border-radius: 100%;
     border: 10px solid transparent;
-    border-top-color: #3498db;
+    border-top-color: purple;
   }
   
   #loader-1:before{
@@ -35,7 +35,7 @@
   }
   
   #loader-1:after{
-    border: 10px solid #ccc;
+    border: 10px solid #fff;
   }
   
   @keyframes spin{

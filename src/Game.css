@@ -1,5 +1,4 @@
 .Game {
-  width: 30%;
   background: white;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
   margin: 0 30%;
@@ -8,16 +7,7 @@
   justify-content: center;
   align-items: center;
 }
-.Game-wrapper {
-  /* width: 30%; */
-  /* background: white; */
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
-  /* margin: 0 30%; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
 h2 {
   font-weight: 100;
   font-size: 2em;
@@ -29,6 +19,11 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
+}
+
+.Game-wrapper {
+  display: flex;
+  align-content: center;
 }
 
 .Game-button-wrapper {
@@ -55,6 +50,8 @@ h2 {
   width: 50%;
 
   margin-bottom: 2rem;
+  height: 74px;
+  width: 180px;
 }
 
 .Game-reroll:hover {
@@ -79,7 +76,6 @@ h2 {
 }
 
 .Game-header {
-  width: 24em;
   background: linear-gradient(-45deg, #673ab7, #9c27b0);
   background-size: 400% 400%;
   -webkit-animation: Gradient 15s ease infinite;
@@ -101,91 +97,14 @@ h2 {
 }
 
 
-/* This is the loading CSS */
 
-$grey: rgba(0, 0, 0, .5);
-$blue: rgba(0, 0, 255, .5);
+@media (max-width: 375px) { 
+  .Game-header {
+    background: linear-gradient(-45deg, #673ab7, #9c27b0);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+  }
 
-@keyframes rotate {
-	0% {
-		transform: rotate(0deg);
-	}
-	50% {
-		transform: rotate(180deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes rotate2 {
-	0% {
-		transform: rotate(0deg);
-		border-top-color: $grey;
-	}
-	50% {
-		transform: rotate(180deg);
-		border-top-color: $blue;
-	}
-	100% {
-		transform: rotate(360deg);
-		border-top-color: $grey;
-	}
-}
-
-* {
-	box-sizing: border-box;
-}
-
-body {
-	background: #f9f9f9;
-	padding-bottom: 100px;
-}
-
-h1, h3 {
-	display: block;
-	margin: 0px auto;
-	text-align: center;
-	font-family: 'Tahoma';
-	font-weight: lighter;
-	color: $grey;
-	letter-spacing: 1.5px;
-}
-
-h1 {
-	margin: 50px auto;
-}
-
-@mixin loaderDivMixin {
-	border-radius: 50%;
-	padding: 8px;
-	border: 2px solid transparent;
-	animation: rotate linear 3.5s infinite;
-}
-
-.loader {
-	position: relative;
-	margin: 75px auto;
-	width: 150px;
-	height: 150px;
-	display: block;
-	overflow: hidden;
-	div {
-		height: 100%;
-	}
-}
-
-/* loader 1 */
-.loader1, .loader1 div {
-	@include loaderDivMixin;
-	border-top-color: $grey;
-	border-bottom-color: $blue;
-}
-
-div:hover {
-	animation-play-state: paused;
-}
-
-.loader, .loader * {
-	will-change: transform;
 }
