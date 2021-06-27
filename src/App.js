@@ -18,7 +18,7 @@ class App extends Component {
           <meta name="author" property="og:author" content="Michael Cooper" />
           <meta name="publish_date" property="og:publish_date" content="2021-06-21T00:00:00-0600" />
           <script src="https://kit.fontawesome.com/8cc1b75eb3.js" crossorigin="anonymous"></script>
-          <title>LightsOut</title>
+          <title>Yahtzee</title>
       </Helmet>
         <Game />
       </div>
