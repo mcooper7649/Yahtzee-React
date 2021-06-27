@@ -1,32 +1,8 @@
 
-/* /*   
-  .container{
-    width: 100%;
-    max-width: 940px;
-    margin: 0 auto;
-    position: relative;
-    text-align: center;
-  } */
-   */
-  /* CLEARFIX */
-  
-  .cf:before,
-  .cf:after {
-      content: " ";
-      display: table;
-  }
-  
-  .cf:after {
-      clear: both;
-  }
-  
-  .cf {
-      *zoom: 1;
-  }
-  
+
   
   .three{
-    padding: 10em;
+    padding: 25em;
   }
   
   /* ALL LOADERS */

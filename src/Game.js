@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Dice from "./Dice";
 import ScoreTable from "./ScoreTable";
-import Leaderboard from './Leaderboard';
+// import Leaderboard from './Leaderboard';
 import "./Game.css";
 import Loader from './Loader.js'
 const axios = require('axios').default;
