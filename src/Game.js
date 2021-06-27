@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import Dice from "./Dice";
 import ScoreTable from "./ScoreTable";
+import Leaderboard from './Leaderboard';
 import "./Game.css";
+import Loader from './Loader.js'
+const axios = require('axios').default;
 
 const NUM_DICE = 5;
 const NUM_ROLLS = 3;
@@ -14,6 +17,8 @@ class Game extends Component {
       locked: Array(NUM_DICE).fill(false),
       rollsLeft: NUM_ROLLS,
       rolling: false,
+      leaderboard: undefined,
+      isLoaded: false,
       scores: {
         ones: undefined,
         twos: undefined,
@@ -27,7 +32,7 @@ class Game extends Component {
         smallStraight: undefined,
         largeStraight: undefined,
         yahtzee: undefined,
-        chance: undefined
+        chance: undefined, 
       }
     };
     this.roll = this.roll.bind(this);
@@ -35,10 +40,22 @@ class Game extends Component {
     this.toggleLocked = this.toggleLocked.bind(this);
     this.animateRoll = this.animateRoll.bind(this);
     this.displayRollInfo = this.displayRollInfo.bind(this);
+    // this.setTimeout = this.setTimeout.bind(this);
   }
 
 componentDidMount(){
   this.animateRoll()
+  axios.get("http://localhost:9000/").then(response => {
+    setTimeout(
+      function(){
+        this.setState({
+          leaderboard: response.data,
+          isLoaded: true
+        });
+  }.bind(this),
+    3000
+    );
+  });
 }
 
   animateRoll(){
@@ -95,6 +112,9 @@ componentDidMount(){
   render() {
     const { dice, locked, rollsLeft, rolling, scores} = this.state;
     return (
+      <div className="Game-wrapper">
+      {this.state.isLoaded ? (
+      
       <div className='Game'>
         <header className='Game-header'>
           <h1 className='App-title'>Yahtzee!</h1>
@@ -119,8 +139,13 @@ componentDidMount(){
           </section>
         </header>
         <ScoreTable doScore={this.doScore} scores={scores} />
-      </div>
-    );
+        {/* <Leaderboard leaderboard={this.state.leaderboard} /> */}
+      </div>)
+      : (
+        <Loader />
+      )}
+    </div>
+    )
   }
 }
 
