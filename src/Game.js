@@ -4,7 +4,7 @@ import ScoreTable from "./ScoreTable";
 // import Leaderboard from './Leaderboard';
 import "./Game.css";
 import Loader from './Loader.js'
-const axios = require('axios').default;
+// const axios = require('axios').default;
 
 const NUM_DICE = 5;
 const NUM_ROLLS = 3;
@@ -47,17 +47,21 @@ class Game extends Component {
 
 componentDidMount(){
   this.animateRollSilent()
-  axios.get("http://localhost:9000/").then(response => {
-    setTimeout(
-      function(){
-        this.setState({
-          leaderboard: response.data,
-          isLoaded: true
-        });
-  }.bind(this),
-    3000
-    );
+  // axios.get("http://localhost:9000/").then(response => {
+  //   setTimeout(
+  //     function(){
+  //       this.setState({
+  //         leaderboard: response.data,
+  //         isLoaded: true
+  //       });
+  // }.bind(this),
+  //   3000
+  //   );
+  // });
+  this.setState({
+    isLoaded: true
   });
+
 }
 
   animateRoll(){
