@@ -46,7 +46,7 @@ class Game extends Component {
   }
 
 componentDidMount(){
-  this.animateRollSilent
+  this.animateRollSilent()
   axios.get("http://localhost:9000/").then(response => {
     setTimeout(
       function(){
