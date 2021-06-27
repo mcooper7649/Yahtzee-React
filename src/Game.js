@@ -58,21 +58,24 @@ componentDidMount(){
   //   3000
   //   );
   // });
-  this.setState({
-    isLoaded: true
-  });
-
-}
+  setTimeout(
+    function(){
+      this.setState({
+        // leaderboard: response.data,
+        isLoaded: true
+      });
+    }.bind(this),
+      3000)}
 
   animateRoll(){
-    this.setState({ rolling: true }, () => {
-      setTimeout(this.roll, 1000)
-    })
     let audio = new Audio("./diceroll.mp3")
     const start = () => {
         audio.play()
       }
       start();
+    this.setState({ rolling: true }, () => {
+      setTimeout(this.roll, 1000)
+    })
 }
 animateRollSilent(){
   this.setState({ rolling: true }, () => {
@@ -94,8 +97,12 @@ animateRollSilent(){
   }
 
   toggleLocked(idx) {
-    // toggle whether idx is in locked or not
-    console.log(idx)
+
+    let audio = new Audio("./light-click.mp3")
+    const start = () => {
+        audio.play()
+      }
+      start();
     if (this.state.rollsLeft > 0 && !this.state.rolling){
     this.setState(st => ({
       locked: [
@@ -103,14 +110,8 @@ animateRollSilent(){
         !st.locked[idx],
         ...st.locked.slice(idx + 1)
       ]
-    }));
-    let audio = new Audio("./light-click.mp3")
-    const start = () => {
-        audio.play()
-      }
-      start();
-  }
-  }
+    }))
+  }}
 
   doScore(rulename, ruleFn) {
     // evaluate this ruleFn with the dice and score this rulename
