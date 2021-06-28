@@ -20,6 +20,7 @@ class Game extends Component {
       rolling: false,
       leaderboard: undefined,
       isLoaded: false,
+      disabled: true,
       scores: {
         ones: undefined,
         twos: undefined,
@@ -42,7 +43,6 @@ class Game extends Component {
     this.toggleClickSound = this.toggleClickSound.bind(this);
     this.toggleRollSound = this.toggleRollSound.bind(this);
     this.animateRoll = this.animateRoll.bind(this);
-    // this.animateRollSilent = this.animateRollSilent.bind(this);
 
     this.displayRollInfo = this.displayRollInfo.bind(this);
   }
@@ -62,31 +62,19 @@ componentDidMount(){
   // });
   setTimeout(
     function(){
-      this.setState({
+      this.setState(st => ({
         // leaderboard: response.data,
-        isLoaded: true
-      });
+        isLoaded: st.isLoaded = true
+      }));
     }.bind(this),
       3000)}
 
   animateRoll(){
     this.toggleRollSound();
     this.setState({ rolling: true }, () => {
-    //   let audio = new Audio("./diceroll.mp3")
-    // const start = () => {
-    //     audio.play()
-    //   }
-    //   start();
       setTimeout(this.roll, 1500)
     })
 }
-// animateRollSilent(){
-//   this.setState({ rolling: true }, () => {
-//     setTimeout(this.roll, 1000)
-//   })
-// }
-  
-
   roll(evt) {
     // roll dice whose indexes are in reroll
     this.setState(st => ({

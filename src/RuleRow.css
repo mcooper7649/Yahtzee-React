@@ -14,7 +14,6 @@
     rgba(209, 196, 233, 1) 30%,
     rgba(227, 242, 253, 1) 40%
   );
-  background-size: 300% 300%;
   animation: Slide 1s ease 1;
 }
 

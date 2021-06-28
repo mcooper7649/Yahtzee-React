@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@200&display=swap');
+
+
 .ScoreTable {
   display: flex;
   flex-direction: column;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   /* width: 80vw; */
   background-color: white;
+  font-family: 'Spartan', sans-serif;
 }
 
 .ScoreTable table {

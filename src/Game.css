@@ -105,3 +105,14 @@ h2 {
     width: fit-content;
   }
 }
+
+
+@media (min-width: 1024px) { 
+  .Game {
+    background: #fff;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite;
+    margin: 0 300px;
+  }
+}

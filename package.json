@@ -7,9 +7,7 @@
     "axios": "^0.21.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-fastclick": "^3.0.2",
     "react-helmet": "^6.1.0",
-    "react-point": "^3.0.1",
     "react-scripts": "1.1.4"
   },
   "scripts": {
