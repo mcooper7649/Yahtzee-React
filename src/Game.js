@@ -21,6 +21,7 @@ class Game extends Component {
       leaderboard: undefined,
       isLoaded: false,
       disabled: true,
+      gameOver: 0,
       scores: {
         ones: undefined,
         twos: undefined,
@@ -43,6 +44,8 @@ class Game extends Component {
     this.toggleClickSound = this.toggleClickSound.bind(this);
     this.toggleRollSound = this.toggleRollSound.bind(this);
     this.animateRoll = this.animateRoll.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+    this.gameReset = this.gameReset.bind(this);
 
     this.displayRollInfo = this.displayRollInfo.bind(this);
   }
@@ -115,12 +118,44 @@ componentDidMount(){
       }
       start();
   }
+  handleReset(){
+    this.gameReset()
+  }
+
+  gameReset(){
+    this.setState({
+      dice: Array.from({ length: NUM_DICE }),
+      locked: Array(NUM_DICE).fill(false),
+      rollsLeft: NUM_ROLLS,
+      rolling: false,
+      leaderboard: undefined,
+      disabled: true,
+      gameOver: 0,
+      scores: {
+        ones: undefined,
+        twos: undefined,
+        threes: undefined,
+        fours: undefined,
+        fives: undefined,
+        sixes: undefined,
+        threeOfKind: undefined,
+        fourOfKind: undefined,
+        fullHouse: undefined,
+        smallStraight: undefined,
+        largeStraight: undefined,
+        yahtzee: undefined,
+        chance: undefined, 
+      }
+    })
+    console.log("State Reset")
+  }
 
   doScore(rulename, ruleFn) {
     // evaluate this ruleFn with the dice and score this rulename
     this.setState(st => ({
       scores: { ...st.scores, [rulename]: ruleFn(this.state.dice) },
       rollsLeft: NUM_ROLLS,
+      gameOver: st.gameOver + 1,
       locked: Array(NUM_DICE).fill(false)
     }));
     this.animateRoll();
@@ -133,8 +168,14 @@ componentDidMount(){
       "2 Rolls Left",
       "Starting Round"
     ];
+    if (this.state.gameOver === 13){
+      let messages = "Game Over"
+      return messages
+    }else {
     return messages[this.state.rollsLeft]
   }
+
+}
   render() {
     const { dice, locked, rollsLeft, rolling, scores} = this.state;
     return (
@@ -164,8 +205,7 @@ componentDidMount(){
             </div>
           </section>
         </header>
-        <ScoreTable doScore={this.doScore} scores={scores} />
-        {/* <Leaderboard leaderboard={this.state.leaderboard} /> */}
+        <ScoreTable handleReset={this.handleReset} gameOver={this.state.gameOver} doScore={this.doScore} scores={scores} />
       </div>)
       : (
         <Loader />

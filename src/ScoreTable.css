@@ -8,6 +8,7 @@
   /* width: 80vw; */
   background-color: white;
   font-family: 'Spartan', sans-serif;
+  align-items:center;
 }
 
 .ScoreTable table {
@@ -19,4 +20,25 @@
 .ScoreTable-section {
   vertical-align: top;
   width: 100%;
+}
+
+.Same-reroll {
+  font-size: 1em;
+  color: white;
+  font-weight: 100;
+  transition: 0.5s;
+  /* background-size: 200% auto; */
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(
+    to right,
+    #125480 0%,
+    #f05151 51%,
+    #125480 100%
+  );
+  border-radius: 0.5rem;
+  border: none;
+  width: 50%;
+
+  height: 45px;
+  width: 120px;
 }
