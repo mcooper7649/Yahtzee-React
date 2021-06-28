@@ -11,7 +11,7 @@ class App extends Component {
       <Helmet>
       <meta charset="utf-8" />
           <meta name="title" property="og:title" content="Yahtzee!" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="viewport" content="width=device-width"/>
           <meta name="theme-color" content="#000000" />
           <meta name="image" property="og:image" content="https://i.ibb.co/fM8m6tj/yahtzee-image.png" />
           <meta name="url" property="og:url" content="https://www.mycodedojo.com" />
