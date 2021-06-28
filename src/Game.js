@@ -99,10 +99,10 @@ componentDidMount(){
   }
     
   toggleLocked(idx) {
-    let audio = new Audio("./click.mp3")
-    const start = () => {
-        audio.play()
-      }
+    // let audio = new Audio("./click.mp3")
+    // const start = () => {
+    //     audio.play()
+    //   }
       start();
     if (this.state.rollsLeft > 0 && !this.state.rolling){
     this.setState(st => ({
