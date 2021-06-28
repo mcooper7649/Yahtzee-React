@@ -18,6 +18,11 @@ class ScoreTable extends Component {
   render() {
     const { scores, doScore, handleReset } = this.props;
     if (this.props.gameOver===13){
+      let audio = new Audio("./diceroll.mp3")
+      const start = () => {
+        audio.play()
+      }
+      start();
       return (
         <div className="ScoreTable">
           <h1>Final Score: {this.getTotalScore()}</h1>
