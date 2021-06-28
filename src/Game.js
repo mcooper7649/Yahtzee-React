@@ -40,6 +40,8 @@ class Game extends Component {
     this.roll = this.roll.bind(this);
     this.doScore = this.doScore.bind(this);
     this.toggleLocked = this.toggleLocked.bind(this);
+    this.toggleClickSound = this.toggleClickSound.bind(this);
+    this.toggleRollSound = this.toggleRollSound.bind(this);
     this.animateRoll = this.animateRoll.bind(this);
     // this.animateRollSilent = this.animateRollSilent.bind(this);
 
@@ -70,13 +72,14 @@ componentDidMount(){
       3000)}
 
   animateRoll(){
+    this.toggleRollSound();
     this.setState({ rolling: true }, () => {
-      let audio = new Audio("./diceroll.mp3")
-    const start = () => {
-        audio.play()
-      }
-      start();
-      setTimeout(this.roll, 850)
+    //   let audio = new Audio("./diceroll.mp3")
+    // const start = () => {
+    //     audio.play()
+    //   }
+    //   start();
+      setTimeout(this.roll, 1000)
     })
 }
 // animateRollSilent(){
@@ -103,7 +106,8 @@ componentDidMount(){
     // const start = () => {
     //     audio.play()
     //   }
-      // start();
+    //   start();
+    this.toggleClickSound()
     if (this.state.rollsLeft > 0 && !this.state.rolling){
     this.setState(st => ({
       locked: [
@@ -113,6 +117,22 @@ componentDidMount(){
       ]
     }))
   }}
+
+  toggleClickSound(){
+    let audio = new Audio("./click.mp3")
+    const start = () => {
+        audio.play()
+      }
+      start();
+  }
+
+  toggleRollSound(){
+    let audio = new Audio("./diceroll.mp3")
+    const start = () => {
+        audio.play()
+      }
+      start();
+  }
 
   doScore(rulename, ruleFn) {
     // evaluate this ruleFn with the dice and score this rulename
