@@ -5,6 +5,8 @@ import ScoreTable from "./ScoreTable";
 import "./Game.css";
 import Loader from './Loader.js'
 // const axios = require('axios').default;
+import initReactFastclick from 'react-fastclick';
+initReactFastclick();
 
 const NUM_DICE = 5;
 const NUM_ROLLS = 3;
