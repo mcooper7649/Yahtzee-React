@@ -46,7 +46,6 @@ class Game extends Component {
     // this.animateRollSilent = this.animateRollSilent.bind(this);
 
     this.displayRollInfo = this.displayRollInfo.bind(this);
-    // this.setTimeout = this.setTimeout.bind(this);
   }
 
 componentDidMount(){
@@ -102,12 +101,6 @@ componentDidMount(){
   }
     
   toggleLocked(idx) {
-    // let audio = new Audio("./click.mp3")
-    // const start = () => {
-    //     audio.play()
-    //   }
-    //   start();
-    this.toggleClickSound()
     if (this.state.rollsLeft > 0 && !this.state.rolling){
     this.setState(st => ({
       locked: [
@@ -116,6 +109,8 @@ componentDidMount(){
         ...st.locked.slice(idx + 1)
       ]
     }))
+
+    this.toggleClickSound()
   }}
 
   toggleClickSound(){
