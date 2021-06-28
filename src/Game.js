@@ -98,11 +98,6 @@ animateRollSilent(){
 
   toggleLocked(idx) {
 
-    let audio = new Audio("./light-click.mp3")
-    const start = () => {
-        audio.play()
-      }
-      start();
     if (this.state.rollsLeft > 0 && !this.state.rolling){
     this.setState(st => ({
       locked: [
