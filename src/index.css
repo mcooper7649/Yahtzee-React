@@ -1,6 +1,4 @@
-html, body {
-  -webkit-tap-highlight-color: transparent;
-}
+
 
 body {
   margin: 0;
@@ -8,4 +6,5 @@ body {
   height: 100vh;
   background: linear-gradient(to right, #91eae4, #86a8e7, #7f7fd5);
   width: 100vw;
+  -webkit-tap-highlight-color: transparent;
 }
