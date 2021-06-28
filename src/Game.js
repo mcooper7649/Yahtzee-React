@@ -39,14 +39,14 @@ class Game extends Component {
     this.doScore = this.doScore.bind(this);
     this.toggleLocked = this.toggleLocked.bind(this);
     this.animateRoll = this.animateRoll.bind(this);
-    this.animateRollSilent = this.animateRollSilent.bind(this);
+    // this.animateRollSilent = this.animateRollSilent.bind(this);
 
     this.displayRollInfo = this.displayRollInfo.bind(this);
     // this.setTimeout = this.setTimeout.bind(this);
   }
 
 componentDidMount(){
-  this.animateRollSilent()
+  // this.animateRollSilent()
   // axios.get("http://localhost:9000/").then(response => {
   //   setTimeout(
   //     function(){
@@ -68,20 +68,20 @@ componentDidMount(){
       3000)}
 
   animateRoll(){
-    let audio = new Audio("./diceroll.mp3")
+    this.setState({ rolling: true }, () => {
+      let audio = new Audio("./diceroll.mp3")
     const start = () => {
         audio.play()
       }
       start();
-    this.setState({ rolling: true }, () => {
-      setTimeout(this.roll, 1000)
+      setTimeout(this.roll, 850)
     })
 }
-animateRollSilent(){
-  this.setState({ rolling: true }, () => {
-    setTimeout(this.roll, 1000)
-  })
-}
+// animateRollSilent(){
+//   this.setState({ rolling: true }, () => {
+//     setTimeout(this.roll, 1000)
+//   })
+// }
   
 
   roll(evt) {
@@ -95,9 +95,13 @@ animateRollSilent(){
       rolling: false
     }));
   }
-
+    
   toggleLocked(idx) {
-
+    let audio = new Audio("./click.mp3")
+    const start = () => {
+        audio.play()
+      }
+      start();
     if (this.state.rollsLeft > 0 && !this.state.rolling){
     this.setState(st => ({
       locked: [
