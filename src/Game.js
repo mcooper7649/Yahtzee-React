@@ -22,6 +22,7 @@ class Game extends Component {
       isLoaded: false,
       disabled: true,
       gameOver: 0,
+      gameStarted: false,
       scores: {
         ones: undefined,
         twos: undefined,
@@ -74,7 +75,10 @@ componentDidMount(){
 
   animateRoll(){
     this.toggleRollSound();
-    this.setState({ rolling: true }, () => {
+    this.setState({ 
+      rolling: true,
+      gameStarted: true
+     }, () => {
       setTimeout(this.roll, 1500)
     })
 }
@@ -91,7 +95,7 @@ componentDidMount(){
   }
     
   toggleLocked(idx) {
-    if (this.state.rollsLeft > 0 && !this.state.rolling){
+    if (this.state.rollsLeft > 0 && !this.state.rolling && this.state.gameStarted){
     this.setState(st => ({
       locked: [
         ...st.locked.slice(0, idx),

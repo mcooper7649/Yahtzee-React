@@ -21,6 +21,9 @@
   vertical-align: top;
   width: 100%;
 }
+.ScoreTable-section-lower {
+  padding-bottom: 15px;
+}
 
 .Same-reroll {
   font-size: 1em;
