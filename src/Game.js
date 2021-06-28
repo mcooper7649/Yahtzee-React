@@ -79,7 +79,7 @@ componentDidMount(){
     //     audio.play()
     //   }
     //   start();
-      setTimeout(this.roll, 1000)
+      setTimeout(this.roll, 1500)
     })
 }
 // animateRollSilent(){
