@@ -103,7 +103,7 @@ componentDidMount(){
     // const start = () => {
     //     audio.play()
     //   }
-      start();
+      // start();
     if (this.state.rollsLeft > 0 && !this.state.rolling){
     this.setState(st => ({
       locked: [
